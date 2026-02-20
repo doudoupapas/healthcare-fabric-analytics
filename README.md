@@ -12,13 +12,15 @@ medallion architecture, multi-source ingestion, and automated CI/CD deployment.
 ## Tech Stack
 - Microsoft Fabric (Lakehouse, Notebooks, Pipelines, Power BI)
 - Azure SQL Database
-- Azure Key Vault
+- Microsoft Entra ID (OAuth2 authentication — no credentials stored in Fabric)
 - GitHub (source control)
 - Azure DevOps (CI/CD)
 
-## CI/CD
-Automated deployment pipeline triggers on every push to main branch,
-validates notebooks and deploys to Fabric Dev workspace via REST API.
+## Security
+Authentication to Azure SQL Database is handled through **Microsoft Entra ID (OAuth2)**
+— no credentials or passwords are stored anywhere in Fabric or the repository.
+Fabric connects to Azure SQL using an Organizational account, with access governed
+by Entra ID roles and policies.
 
 ## How to Run
 1. Clone this repository
